@@ -1,5 +1,6 @@
 import com.model.GameConfig;
 import service.GuessValidator;
+import service.HintService;
 
 import java.util.Scanner;
 
@@ -24,6 +25,7 @@ public class GuessingApp {
         config.showRules();
         Scanner scan=new Scanner(System.in);
         int attempts=0;
+        int hint=1;
         /*
          *Game loop runs until the
          * Player exhausts the maximum attempts
@@ -33,6 +35,10 @@ public class GuessingApp {
             int guess= scan.nextInt();
             attempts++;
             String result= GuessValidator.validateGuess(config.getTargetNumber(), guess);
+            if (hint<5){
+                String acquiredHint=HintService.generateHint(config.getTargetNumber(), hint++);
+                System.out.println(acquiredHint);
+            }
             System.out.println(result);
             /*
              * Stops loop immediately if
