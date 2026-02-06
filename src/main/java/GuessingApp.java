@@ -12,9 +12,10 @@ import java.util.Scanner;
  * 2. Accept user guesses
  * 3. Validate guesses
  * 4. Stop when game ends
+ * 5. Giving hits based on user input
  *
  * @author Developer
- * @version 2.0
+ * @version 3.0
  */
 
 
